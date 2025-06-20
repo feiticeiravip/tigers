@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0N3WWWQ7V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-V0N3WWWQ7V');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; frame-src *; connect-src *;">
+    <meta name="description" content="Banca Tigers Club">
+    <meta name="keywords" content="Tigers Club - Melhor Banca do Brasil">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Tigers Club - Banca online segura e rentável">
+    <meta property="og:description" content="Melhores Bancas do Brasil - Tigers Club">
+    <meta property="og:url" content="https://tigersclub.bar">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://tigersclub.bar/og-image.jpg">
+    <title>Banca Tigers Club</title>
+    <link rel="icon" href="tiger.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body, html {
+            font-family: 'Roboto', sans-serif;
+            background: #f4f6f8;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #000000, #000000);
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            height: 50px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+        header img {
+            height: 35px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        header img:hover {
+            transform: rotate(10deg) scale(1.1);
+        }
+        header h1 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        #main-content {
+            flex: 1;
+            margin-top: 50px;
+            margin-bottom: 60px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        #tiger, #aguia, #acertos, #brazz, #suporte {
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out, transform 0.3s ease;
+        }
+        #suporte {
+            padding: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+        #suporte-content {
+            padding: 16px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            opacity: 0;
+        }
+        #suporte-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            border-radius: 10px;
+        }
+        footer {
+            background: linear-gradient(135deg, #000000, #000000);
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border-top: 2px solid #e0e6ec;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+            box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+            z-index: 10;
+            gap: 6px;
+        }
+        .footer-bar {
+            background: linear-gradient(135deg, #7bbdff, #1a3c5e);
+            height: 20px;
+            width: 100%;
+            position: fixed;
+            bottom: -20px;
+            z-index: 9;
+        }
+        footer .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 48px;
+            gap: 4px;
+        }
+        footer button {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 8px;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex: 1;
+            justify-content: center;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        footer button.selected {
+            background: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        footer button img {
+            height: 28px;
+            width: 28px;
+        }
+        footer button i {
+            font-size: 28px;
+        }
+        footer button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        footer button:active {
+            transform: scale(0.95);
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 8px 15px;
+            }
+            header img {
+                height: 30px;
+            }
+            header h1 {
+                font-size: 16px;
+            }
+            #main-content {
+                margin-top: 50px;
+                margin-bottom: 60px;
+            }
+            #suporte {
+                padding: 12px;
+            }
+            #suporte-content {
+                max-width: 100%;
+            }
+            footer {
+                padding: 6px;
+                height: 60px;
+                bottom: 0;
+            }
+            .footer-bar {
+                height: 20px;
+                bottom: -20px;
+            }
+            footer .row {
+                height: 40px;
+            }
+            footer button {
+                font-size: 12px;
+                padding: 4px;
+            }
+            footer button img {
+                height: 24px;
+                width: 24px;
+            }
+            footer button i {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="tiger.png" alt="Logotipo Vivi JB">
+        <h1>TIGERS CLUB</h1>
+    </header>
+    <div id="main-content">
+        <div id="tiger">
+            <iframe allow="clipboard-read; clipboard-write" src="https://app.tigersclub.vip/pr/SDyz43qa" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+        </div>
+        <div id="aguia" class="hidden">
+            <iframe allow="clipboard-read; clipboard-write" src="https://app.aguiaoficial.com/pr/XvrHVdt2" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+        </div>
+        <div id="acertos" class="hidden">
+            <iframe allow="clipboard-read; clipboard-write" src="https://app.acertos.club/pr/T5Sf26JH" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+        </div>
+        <div id="brazz" class="hidden">
+            <iframe allow="clipboard-read; clipboard-write" src="https://app.brazz.club/pr/oC7VMz8A" loading="lazy" sandbox="allow-scripts allow-same-origin allow-clipboard-write"></iframe>
+        </div>
+        <div id="suporte" class="hidden">
+            <div id="suporte-content"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="row">
+            <button onclick="mostrar('tiger')" class="selected">
+                <img src="tiger.png" alt="Tiger Club">
+                Tiger Club
+            </button>
+            <button onclick="mostrar('aguia')">
+                <img src="aguia.png" alt="Águia Oficial">
+                Águia Oficial
+            </button>
+            <button onclick="mostrar('acertos')">
+                <img src="acertos.png" alt="Acertos Club">
+                Acertos Club
+            </button>
+            <button onclick="mostrar('brazz')">
+                <img src="brazz.png" alt="Brazz">
+                Brazz
+            </button>
+            <button onclick="mostrar('suporte')">
+                <i class="fab fa-whatsapp"></i>
+                Suporte
+            </button>
+        </div>
+    </footer>
+    <div class="footer-bar"></div>
+    <script>
+        function mostrar(id) {
+            const tiger = document.getElementById('tiger');
+            const aguia = document.getElementById('aguia');
+            const acertos = document.getElementById('acertos');
+            const brazz = document.getElementById('brazz');
+            const suporte = document.getElementById('suporte');
+            if (id === 'suporte') {
+                window.open('https://wa.me/5583991177252?text=Ol%C3%A1%2C%20Suporte.%20Preciso%20de%20ajuda%21', '_blank');
+                return;
+            }
+            tiger.style.display = id === 'tiger' ? 'block' : 'none';
+            aguia.style.display = id === 'aguia' ? 'block' : 'none';
+            acertos.style.display = id === 'acertos' ? 'block' : 'none';
+            brazz.style.display = id === 'brazz' ? 'block' : 'none';
+            suporte.style.display = 'none';
+            document.querySelectorAll('footer button').forEach(button => {
+                button.classList.remove('selected');
+                if (button.getAttribute('onclick') === `mostrar('${id}')`) {
+                    button.classList.add('selected');
+                }
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrar('tiger');
+        });
+    </script>
+</body>
+</html>
